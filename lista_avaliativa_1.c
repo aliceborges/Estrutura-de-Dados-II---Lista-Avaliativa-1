@@ -85,7 +85,10 @@ void bolha(int n, int* v){
 }
 
 void bolha_desc(int n, int* v){
+    clock_t tInicio, tFim;
+    double tDecorrido;
     int fim, i, lengh = n;
+    tInicio = clock();
     for (fim = n-1; fim > 0; fim--){
         int troca = 0;
         for (i = 0; i<fim; i++){
@@ -98,21 +101,29 @@ void bolha_desc(int n, int* v){
             //if (troca == 0) return;
         }
     }
-    
+    tFim = clock();
+
     printf("Array Ordenado DESC: \n\n");
     for (i = 0; i<n; i++){
-        printf("%d\n", v[i]);
+        printf("Elemento %d: %d\n", i, v[i]);
     }
+
+    tDecorrido = (((double)(tFim - tInicio))/ (CLOCKS_PER_SEC / 1000));
+    printf("Tempo decorrido: %lf s\n", tDecorrido);
 }
+
+//QUESTÃO 5
+//Se duplicar o tamanho do vetor, o tempo que leva ao Bubble sort ordenar também 
+//duplica? 
 
 int main(){
 
-    // float i, resultado;
+    // float i1, resultado1;
     // printf("===========================================\n");
     // printf("QUESTÃO 1\n");
-    // i = questao1();
-    // resultado = calculaSerieS(i);
-    // printf("Resultado: %f\n", resultado);
+    // i1 = questao1();
+    // resultado1 = calculaSerieS(i1);
+    // printf("Resultado: %f\n", resultado1);
     // printf("===========================================\n\n");
 
     // float base, exponente, potencia;
@@ -125,23 +136,33 @@ int main(){
     // printf("===========================================\n\n");
 
     // int fatorando;
-    // float resultado;
+    // float resultado3;
     // printf("===========================================\n");
     // printf("QUESTÃO 3\n");
     // fatorando = questao3();
-    // resultado = fatorialQuadruplo(fatorando, fatorando * 2);
-    // printf("Resultado: %f\n", resultado);
+    // resultado3 = fatorialQuadruplo(fatorando, fatorando * 2);
+    // printf("Resultado: %f\n", resultado3);
     // printf("===========================================\n\n");
 
-    int i, array_desordenado[10];
+    int i4, array_desordenado4[10];
     printf("QUESTÃO 4 - Bubble Sort DESC\n\n");
     printf("Array randômico:\n\n");
-    for(i = 0; i <= 9; i++){
-        array_desordenado[i] = rand() % 100;
-        printf ("Elemento %d: %d\n", i, array_desordenado[i]);
+    for(i4 = 0; i4 <= 9; i4++){
+        array_desordenado4[i4] = rand() % 100;
+        printf ("Elemento %d: %d\n", i4, array_desordenado4[i4]);
     }
     printf("\n");
-    //bolha(10, array_desordenado);
-    bolha_desc(10, array_desordenado);
+    bolha_desc(10, array_desordenado4);
+    printf("===========================================\n\n");
+
+    int i5, array_desordenado5[20];
+    printf("QUESTÃO 5\n\n");
+    printf("Array randômico:\n\n");
+    for(i5 = 0; i5 <= 19; i5++){
+        array_desordenado5[i5] = rand() % 100;
+        printf ("Elemento %d: %d\n", i5, array_desordenado5[i5]);
+    }
+    printf("\n");
+    bolha_desc(20, array_desordenado5);
     printf("===========================================\n\n");
 }
