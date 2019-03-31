@@ -45,23 +45,103 @@ float calculaPotencia(float x, float n){
     return resultado;
 }
 
+// QUESTÃO 3
+// Faça, usando linguagem C, uma função recursiva que receba um número inteiro 
+// positivo N e retorne o fatorial quádruplo desse número. O fatorial quádruplo de um 
+// número N é dado por (2n)!/n!
+
+int fatorialQuadruplo(int denominador, int numerador) {
+    if(denominador + 1 >= numerador){
+        return denominador + 1;
+    }else{
+        return (denominador + 1) * fatorialQuadruplo(denominador + 1, numerador);
+    }
+}
+
+// QUESTÃO 4
+// Usando o algoritmo visto em aula, faça linguagem C o Bubble Sort invertido – Faça o 
+// algoritmo do bubblesort lterando‐o para que funcione ao contrário (i.e., que resulte 
+// em números ordenados do maior para o menor). 
+
+void bolha(int n, int* v){
+    int fim, i, lengh = n;
+    for (fim = n-1; fim > 0; fim--){
+        int troca = 0;
+        for (i = 0; i<fim; i++){
+            if(v[i]>v[i+1]){
+                int temp = v[i];
+                v[i] = v[i+1];
+                v[i+1] = temp; 
+                //troca = 1;
+            }
+            //if (troca == 0) return;
+        }
+    }
+    
+    printf("Array Ordenado ASC: \n");
+    for (i = 0; i<n; i++){
+        printf("%d\n", v[i]);
+    }
+}
+
+void bolha_desc(int n, int* v){
+    int fim, i, lengh = n;
+    for (fim = n-1; fim > 0; fim--){
+        int troca = 0;
+        for (i = 0; i<fim; i++){
+            if(v[i]<v[i+1]){ // Só é invertido o sinal aqui
+                int temp = v[i];
+                v[i] = v[i+1];
+                v[i+1] = temp; 
+                //troca = 1;
+            }
+            //if (troca == 0) return;
+        }
+    }
+    
+    printf("Array Ordenado DESC: \n\n");
+    for (i = 0; i<n; i++){
+        printf("%d\n", v[i]);
+    }
+}
+
 int main(){
 
-    float i, resultado;
-    printf("===========================================\n");
-    printf("QUESTÃO 1\n");
-    i = questao1();
-    resultado = calculaSerieS(i);
-    printf("Resultado: %f\n", resultado);
-    printf("===========================================\n\n");
+    // float i, resultado;
+    // printf("===========================================\n");
+    // printf("QUESTÃO 1\n");
+    // i = questao1();
+    // resultado = calculaSerieS(i);
+    // printf("Resultado: %f\n", resultado);
+    // printf("===========================================\n\n");
 
-    float base, exponente, potencia;
-    printf("===========================================\n");
-    printf("QUESTÃO 2\n");
-    base = questao2pergunta1();
-    exponente = questao2pergunta2();
-    potencia = calculaPotencia(base, exponente);
-    
-    printf("Resultado: %f\n", potencia);
+    // float base, exponente, potencia;
+    // printf("===========================================\n");
+    // printf("QUESTÃO 2\n");
+    // base = questao2pergunta1();
+    // exponente = questao2pergunta2();
+    // potencia = calculaPotencia(base, exponente);
+    // printf("Resultado: %f\n", potencia);
+    // printf("===========================================\n\n");
+
+    // int fatorando;
+    // float resultado;
+    // printf("===========================================\n");
+    // printf("QUESTÃO 3\n");
+    // fatorando = questao3();
+    // resultado = fatorialQuadruplo(fatorando, fatorando * 2);
+    // printf("Resultado: %f\n", resultado);
+    // printf("===========================================\n\n");
+
+    int i, array_desordenado[10];
+    printf("QUESTÃO 4 - Bubble Sort DESC\n\n");
+    printf("Array randômico:\n\n");
+    for(i = 0; i <= 9; i++){
+        array_desordenado[i] = rand() % 100;
+        printf ("Elemento %d: %d\n", i, array_desordenado[i]);
+    }
+    printf("\n");
+    //bolha(10, array_desordenado);
+    bolha_desc(10, array_desordenado);
     printf("===========================================\n\n");
 }

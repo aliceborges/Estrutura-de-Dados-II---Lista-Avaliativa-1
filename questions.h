@@ -4,8 +4,6 @@
 
 float questao1(){
     float i;
-
-    
     printf("Digite um número maior que 0 para exibir a somatória: ");
     scanf("%f", &i);
 
@@ -43,5 +41,19 @@ float questao2pergunta2(){
     }else{
         printf("O dado informado %f não é um número natural. Tente novamente.\n", exponente);
         questao2pergunta2();
+    }
+}
+
+int questao3(){
+    int resultado, valida;
+    printf("Digite um número natural positivo para fazer o fatorial quádruplo: ");
+    scanf("%d", &resultado);
+    valida = validaNaturais(resultado);
+
+    if(valida == 0){
+        return resultado;
+    }else{
+        printf("O dado informado %d não é um número natural. Tente novamente.\n", resultado);
+        questao3();
     }
 }
