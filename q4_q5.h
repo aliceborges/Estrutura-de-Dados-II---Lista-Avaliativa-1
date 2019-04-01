@@ -6,27 +6,6 @@
 // algoritmo do bubblesort lterando‐o para que funcione ao contrário (i.e., que resulte 
 // em números ordenados do maior para o menor). 
 
-void bolha(int n, int* v){
-    int fim, i, lengh = n;
-    for (fim = n-1; fim > 0; fim--){
-        int troca = 0;
-        for (i = 0; i<fim; i++){
-            if(v[i]>v[i+1]){
-                int temp = v[i];
-                v[i] = v[i+1];
-                v[i+1] = temp; 
-                //troca = 1;
-            }
-            //if (troca == 0) return;
-        }
-    }
-    
-    printf("Array Ordenado ASC: \n");
-    for (i = 0; i<n; i++){
-        printf("%d\n", v[i]);
-    }
-}
-
 void bolha_desc(int n, int* v){
     clock_t tInicio, tFim;
     double tDecorrido;
