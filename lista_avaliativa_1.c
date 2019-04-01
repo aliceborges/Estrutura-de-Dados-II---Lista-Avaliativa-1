@@ -6,10 +6,11 @@
 // Aluno(s): Alice Borges
 
 int main(){
-    // question1 = q1();
-    // question2 = q2();
-    // question3 = q3();
-    // questions4_5 = q4_q5();
-    // question6 = q6();
-    q7();
+    // q1();
+    // q2();
+    // q3();
+    // q4_q5();
+    // q6();
+    // q7();
+    q8();
 }
